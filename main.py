@@ -2,15 +2,18 @@ import sounddevice as sd
 import numpy as np
 import sys
 from pathlib import Path
+from enum import Enum
 
-assets_path = Path(__file__).resolve().parent / "ASSETS"
-sys.path.append(str(assets_path))
-import constants
+# So we can import from directories outside of main
+#assets_path = Path(__file__).resolve().parent / "ASSETS"
+#sys.path.append(str(assets_path))
+#from constants import SAMPLE_RATE, N4
+from ASSETS.constants import SAMPLE_RATE, N4
 
 def main():
-    chord_frequencies = [261.63, 329.63, 392.00]
+    chord_frequencies = [N4.C.value, N4.E.value, N4.G.value]
     duration = 3.0
-    total_samples = int(constants.SAMPLE_RATE * duration)
+    total_samples = int(SAMPLE_RATE * duration)
 
     # Combine the notes into a chord
     chord_audio = np.zeros(total_samples)
@@ -22,12 +25,12 @@ def main():
 
     # Play the synthesized piano chord live
     print("Playing synthesized piano chord...")
-    sd.play(chord_audio, constants.SAMPLE_RATE)
+    sd.play(chord_audio, SAMPLE_RATE)
     sd.wait()
     
 
 def generate_piano_note(frequency, duration=2.5):
-    t = np.linspace(0, duration, int(constants.SAMPLE_RATE * duration), endpoint=False)
+    t = np.linspace(0, duration, int(SAMPLE_RATE * duration), endpoint=False)
     
     # 1. Piano Harmonic Structure (relative amplitudes of overtones)
     # Pianos have prominent harmonics that decay differently than the fundamental note.
