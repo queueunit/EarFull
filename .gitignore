@@ -9,3 +9,5 @@ NOTES.txt
 
 # Virtual environments
 .venv
+
+test.py
