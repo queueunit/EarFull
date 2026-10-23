@@ -4,10 +4,6 @@ import sys
 from pathlib import Path
 from enum import Enum
 
-# So we can import from directories outside of main
-#assets_path = Path(__file__).resolve().parent / "ASSETS"
-#sys.path.append(str(assets_path))
-#from constants import SAMPLE_RATE, N4
 from ASSETS.constants import SAMPLE_RATE, N4
 
 def main():
