@@ -4,7 +4,6 @@ import sys
 from pathlib import Path
 from enum import Enum
 
-# Test
 from ASSETS.constants import SAMPLE_RATE, N4
 
 def main():
