@@ -6,6 +6,7 @@ from enum import Enum
 
 from ASSETS.constants import SAMPLE_RATE, N4
 
+# TEST
 def main():
     chord_frequencies = [N4.C.value, N4.E.value, N4.G.value]
     duration = 3.0
