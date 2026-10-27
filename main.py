@@ -3,12 +3,16 @@ import numpy as np
 import sys
 from pathlib import Path
 from enum import Enum
+import argparse
 
 from assets.constants import SAMPLE_RATE, N4
 from src.chord_type_mode import generate_chord
 from src.generate_piano_note import generate_piano_note
+from src.Player import Player
 
 def main():
+    name = input("Enter your name: ") 
+    player = Player(name)
     chord_frequencies, type = generate_chord()
 #    chord_frequencies = [N4.C.value, N4.E.value, N4.G.value]
     duration = 3.0
