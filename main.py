@@ -12,7 +12,11 @@ from src.Player import Player
 
 def main():
     name = input("Enter your name: ") 
-    player = Player(name)
+    player_path = Path(f"profiles/{name}.json")
+    if player_path.exists():
+        player = Player(name, player_path)
+    else:
+        player = Player(name)
     chord_frequencies, type = generate_chord()
 #    chord_frequencies = [N4.C.value, N4.E.value, N4.G.value]
     duration = 3.0
